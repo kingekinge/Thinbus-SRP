@@ -1,0 +1,32 @@
+{
+  "name": "Thinbus-SRP",
+  "version": "0.1.0",
+  "summary": "A short description of Thinbus-SRP.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/kingekinge/Thinbus-SRP",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kingekinge": "kingekinge@163.com"
+  },
+  "source": {
+    "git": "https://github.com/kingekinge/Thinbus-SRP.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.1",
+  "source_files": "Thinbus-SRP/Classes/**/*",
+  "dependencies": {
+    "IDZSwiftCommonCrypto": [
+      "~> 0.13.0"
+    ],
+    "BigInt": [
+      "~> 5.2"
+    ]
+  },
+  "swift_version": "5.1"
+}

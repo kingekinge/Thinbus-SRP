@@ -1,0 +1,6 @@
+framework module Pods_Thinbus_SRP_Tests {
+  umbrella header "Pods-Thinbus-SRP_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

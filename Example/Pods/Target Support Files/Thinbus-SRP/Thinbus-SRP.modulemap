@@ -1,0 +1,6 @@
+framework module Thinbus_SRP {
+  umbrella header "Thinbus-SRP-umbrella.h"
+
+  export *
+  module * { export * }
+}

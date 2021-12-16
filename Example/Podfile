@@ -2,6 +2,5 @@ use_frameworks!
 target 'Thinbus-SRP_Tests' do
   pod 'Thinbus-SRP', :path => '../'
   
-  pod 'Quick', '~> 2.2.0'
-    pod 'Nimble', '~> 8.0.7'
+
 end

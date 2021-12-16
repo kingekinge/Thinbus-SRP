@@ -21,15 +21,15 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/zlk/Thinbus-SRP'
+  s.homepage         = 'https://github.com/kingekinge/Thinbus-SRP'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'zlk' => 'kingekinge@163.com' }
-  s.source           = { :git => 'https://github.com/zlk/Thinbus-SRP.git', :tag => s.version.to_s }
+  s.author           = { 'kingekinge' => 'kingekinge@163.com' }
+  s.source           = { :git => 'https://github.com/kingekinge/Thinbus-SRP.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
-
+  s.ios.deployment_target = '13.0'
+  s.swift_version = "5.1"
   s.source_files = 'Thinbus-SRP/Classes/**/*'
   
   # s.resource_bundles = {
@@ -39,4 +39,8 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+
+  s.dependency 'IDZSwiftCommonCrypto', '~> 0.13.0'
+  s.dependency 'BigInt', '~> 5.2'
+
 end

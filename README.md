@@ -22,7 +22,9 @@ pod 'Thinbus-SRP'
 
 
 
-## Step 0: Generate a new verifier v for the user identity I and password P with salt s.
+
+
+### Step 0: Generate a new verifier v for the user identity I and password P with salt s.
 
 ```swift
 //register s and v send to server
@@ -35,7 +37,11 @@ let verifier = client.enroll(identity: _identity, password: _password, salt: sal
 
 
 
-##  Step 1: Generates a one-time client key A encoded as a hexadecimal.
+
+
+
+
+###  Step 1: Generates a one-time client key A encoded as a hexadecimal.
 
 ```swift
 let userA = client.identify(identity: _identity, password: _password, salt: salt)
@@ -44,7 +50,11 @@ let userA = client.identify(identity: _identity, password: _password, salt: salt
 
 
 
-##  Step 2: Create challenge response to server's public key challenge B with a proof of password M1.
+
+
+
+
+###  Step 2: Create challenge response to server's public key challenge B with a proof of password M1.
 
 
 

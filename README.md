@@ -11,6 +11,15 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+
+
+```ruby
+ios >= 13.0
+swift >= 5.1
+```
+
+
+
 ## Installation
 
 Thinbus-SRP is available through [CocoaPods](https://cocoapods.org). To install
@@ -19,8 +28,6 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'Thinbus-SRP'
 ```
-
-
 
 
 
@@ -39,16 +46,12 @@ let verifier = client.enroll(identity: _identity, password: _password, salt: sal
 
 
 
-
-
 ###  Step 1: Generates a one-time client key A encoded as a hexadecimal.
 
 ```swift
 let userA = client.identify(identity: _identity, password: _password, salt: salt)
 
 ```
-
-
 
 
 

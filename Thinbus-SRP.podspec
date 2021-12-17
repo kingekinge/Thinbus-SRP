@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thinbus-SRP'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = ' Secure Remote Password SRP-6a implementation for ios/macOS to perform '
 
 # This description is used to generate tags and improve search results.

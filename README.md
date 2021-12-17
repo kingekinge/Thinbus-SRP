@@ -20,6 +20,46 @@ it, simply add the following line to your Podfile:
 pod 'Thinbus-SRP'
 ```
 
+
+
+## Step 0: Generate a new verifier v for the user identity I and password P with salt s.
+
+```swift
+//register s and v send to server
+
+let srp = Client.init(config: Config(prime: N, generator: g, key: key, algorithm: .sha256))
+
+let verifier = client.enroll(identity: _identity, password: _password, salt: salt)
+
+```
+
+
+
+##  Step 1: Generates a one-time client key A encoded as a hexadecimal.
+
+```swift
+let userA = client.identify(identity: _identity, password: _password, salt: salt)
+
+```
+
+
+
+##  Step 2: Create challenge response to server's public key challenge B with a proof of password M1.
+
+
+
+``` swift
+let message = try! srp.challenge(B: userB, salt: salt)
+
+//confirm server's proof of shared key message M2 against
+srp.confirm(proof: serverPoof)
+
+//calc 256 bit share key
+srp.session()
+```
+
+
+
 ## Author
 
 zlk, kingekinge@163.com

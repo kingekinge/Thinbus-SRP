@@ -66,6 +66,11 @@ class SRPTests: XCTestCase {
        print(verifier)
     }
     
+    
+    func testIdentity(){
+        client.identify(identity: _identity, password: _password, salt: salt)
+    }
+    
     func testPrivateKeyLength() throws{
         let srp = initClient()
         let number = srp.number()
@@ -98,7 +103,8 @@ class SRPTests: XCTestCase {
 
             
             let message = try! srp.challenge(B: userB, salt: salt)
-            
+        
+        
    
            XCTAssertEqual(srp.session(),"44c72fa5f1c76178e3203236326b259a4127cc38ee1")
       

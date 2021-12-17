@@ -26,6 +26,8 @@ class SRPTests: XCTestCase {
 
      let _password = "St_V5tWn_DiMSvsCC8zjvgOZgaAwq-P2AMr_RY0wIYY"
     
+    lazy var client = initClient()
+    
     func initClient()->Client{
         return Client.init(config: Config(prime: N, generator: g, key: key, algorithm: .sha256))
     }
@@ -59,11 +61,10 @@ class SRPTests: XCTestCase {
     
     
     
-    func testTime() throws {
-        print(Date().millisecondsSince1970)
+    func testEnroll(){
+       let verifier = client.enroll(identity: _identity, password: _password, salt: salt)
+       print(verifier)
     }
-    
-
     
     func testPrivateKeyLength() throws{
         let srp = initClient()

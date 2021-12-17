@@ -39,8 +39,40 @@ class Client{
         
     }
     
+    /**
+       * Configure the SRP shared settings.
+       *
+       * @param string prime     configured value N as a decimal
+       * @param string generator configured value g as a decimal
+       * @param string key       configured value k as a hexidecimal
+       * @param string algorithm name (e.g.: sha256)
+       *
+       * @return Client
+       */
     static func configure(prime:String, generator:String, key:String, algorithm:Digest.Algorithm = Digest.Algorithm.sha256)->Client {
         return Client(config: Config(prime: prime, generator: generator, key: key, algorithm: algorithm))
+    }
+    
+    
+    
+    
+    
+    /**
+       * Step 0: Generate a new verifier v for the user identity I and password P with salt s.
+       *
+       * @param string identity I of user
+       * @param string password P for user
+       * @param string salt     value s chosen at random
+       *
+       * @return string
+       */
+    func enroll(identity:String, password:String, salt:String) -> String {
+      self._identity = identity
+      self._salt = salt
+
+        let signature = self.signature(identity: identity, password: password, salt: self._salt)
+
+        return _toHex(number: self.config.generator().power(signature, modulus: self.config.prime()))
     }
     
     
@@ -222,6 +254,14 @@ class Client{
     }
     
     
+    /**
+       * Generate an RFC 5054 compliant private key value (a or b) which is in the
+       * range [1, N-1] of at least 256 bits.
+       *
+       * A nonce based on H(I|:|s|:|t) is added to ensure random number generation.
+       *
+       * @return BigInt
+       */
    func number()->BigInt{
        let  bits  = max(256, _toHex(number: self.config.prime()).count)
        
@@ -241,9 +281,7 @@ class Client{
     }
     
     
-//    func _toStirng(bigint:BigInt) -> String{
-//        return String(bigint,radix: 10)
-//    }
+
     
     func session() ->String{
         return self._session.prefix(43).trimmingCharacters(in: .whitespacesAndNewlines)

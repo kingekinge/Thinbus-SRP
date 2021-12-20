@@ -73,10 +73,6 @@ srp.session()
 
 
 
-## Author
-
-zlk, kingekinge@163.com
-
 ## License
 
 Thinbus-SRP is available under the MIT license. See the LICENSE file for more info.
